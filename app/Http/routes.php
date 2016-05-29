@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/product-{product_id}', function ($product_id) {
+
+    $product_model = \App\Models\ProductModel::findOrFail($product_id);
+
+    return view('product.card', $product_model->toArray() + ['model' => $product_model]);
+});
