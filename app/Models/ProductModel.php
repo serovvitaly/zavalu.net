@@ -17,8 +17,29 @@ class ProductModel extends Model
         return $products;
     }
 
+    public function getGroupProducts()
+    {
+        $products = \App\Models\ProductModel::orderBy('weight')
+            ->where('group_id', '=', $this->group_id)
+            ->where('group_id', '>', 0)
+            ->where('id', '<>', $this->id)
+            ->get();
+
+        return $products;
+    }
+
     public function getPrice()
     {
         return number_format($this->price, 2, ',', ' ');
+    }
+
+    public function getImage()
+    {
+        //
+    }
+
+    public function rivals_links()
+    {
+        return $this->hasMany('App\Models\RivalLinkModel', 'product_id');
     }
 }

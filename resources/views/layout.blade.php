@@ -29,13 +29,77 @@
             font-family: 'Open Sans Condensed',sans-serif;
             font-weight: bold;
         }
+        body {
+            background: url(/img/bg-body.png);
+        }
+        #main-container {
+            -webkit-box-shadow: 0 0 1px #d5d5d5;
+            box-shadow: 0 0 1px #d5d5d5;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        #topbar {
+            min-height: 40px;
+            text-transform: uppercase;
+            font-size: 11px;
+            background: white;
+            line-height: 36px;
+        }
+        #header-main {
+            min-height: 60px;
+            background-color: #e57aac;
+        }
+        #header-main:before {
+            background-image: url(/img/line-top-page.png);
+            background-repeat: repeat-x;
+            background-position: 0 0;
+            position: absolute;
+            content: "";
+            bottom: -8px;
+            left: 0px;
+            width: 100%;
+            height: 8px;
+            z-index: 10;
+        }
+        #footer-top:before {
+            background-image: url(/img/line-footer-page.png);
+            background-repeat: repeat-x;
+            background-position: 0 0;
+            position: absolute;
+            content: "";
+            top: -8px;
+            left: 0px;
+            width: 100%;
+            height: 8px;
+        }
+        #footer-top {
+            background: #65c5f2;
+            margin-top: 30px;
+            min-height: 50px;
+        }
+        #footer-bottom {
+            background: white;
+            min-height: 50px;
+        }
+        .white-wrapper {
+            background: white;
+            margin: 0 -10px;
+            padding: 10px;
+        }
     </style>
 
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="main-container">
+    <div class="row">
+        <div class="col-lg-12" id="topbar"></div>
+        <div class="col-lg-12" id="header-main"></div>
+    </div>
     @yield('content')
+    <div class="row">
+        <div class="col-lg-12" id="footer-top"></div>
+        <div class="col-lg-12" id="footer-bottom"></div>
+    </div>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
