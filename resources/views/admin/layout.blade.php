@@ -9,8 +9,6 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,71 +25,6 @@
     <style>
         h1,h2,h3,h4 {
             font-family: 'Open Sans Condensed',sans-serif;
-            font-weight: bold;
-        }
-        body {
-            background: url(/img/bg-body.png);
-        }
-        #main-container {
-            -webkit-box-shadow: 0 0 1px #d5d5d5;
-            box-shadow: 0 0 1px #d5d5d5;
-            background: rgba(0, 0, 0, 0.1);
-        }
-        #topbar {
-            min-height: 40px;
-            text-transform: uppercase;
-            font-size: 11px;
-            background: white;
-            line-height: 36px;
-        }
-        #header-main {
-            min-height: 60px;
-            background-color: #e57aac;
-        }
-        #header-main:before {
-            background-image: url(/img/line-top-page.png);
-            background-repeat: repeat-x;
-            background-position: 0 0;
-            position: absolute;
-            content: "";
-            bottom: -8px;
-            left: 0px;
-            width: 100%;
-            height: 8px;
-            z-index: 10;
-        }
-        #footer-top:before {
-            background-image: url(/img/line-footer-page.png);
-            background-repeat: repeat-x;
-            background-position: 0 0;
-            position: absolute;
-            content: "";
-            top: -8px;
-            left: 0px;
-            width: 100%;
-            height: 8px;
-        }
-        #footer-top {
-            background: #65c5f2;
-            margin-top: 30px;
-            min-height: 50px;
-        }
-        #footer-bottom {
-            background: white;
-            min-height: 50px;
-        }
-        .white-wrapper {
-            background: white;
-            margin: 0 -10px;
-            padding: 10px;
-        }
-        .mini-item-input-text {
-            width: 30px;
-            height: 24px;
-            padding: 0;
-            text-align: center;
-            margin: 0;
-            font-size: 11px;
             font-weight: bold;
         }
     </style>

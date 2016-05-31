@@ -23,6 +23,7 @@ class ProductModel extends Model
             ->where('group_id', '=', $this->group_id)
             ->where('group_id', '>', 0)
             ->where('id', '<>', $this->id)
+            ->where('active', '=', 1)
             ->get();
 
         return $products;
@@ -35,7 +36,17 @@ class ProductModel extends Model
 
     public function getImage()
     {
-        //
+        if ( ! $this->base_image_id ) {
+
+            return null;
+        }
+
+        return \App\Models\MediaModel::findOrFail($this->base_image_id)->file_name;
+    }
+
+    public function images()
+    {
+        return $this->hasMany('\App\Models\MediaModel', 'product_id')->where('type', '=', 'img');
     }
 
     public function rivals_links()

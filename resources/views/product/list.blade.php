@@ -4,3 +4,5 @@
     @include('product.list-item-1', $product->toArray() + ['model' => $product])
 @endforeach
 </div>
+
+@include('product.modal.buy-one-click')

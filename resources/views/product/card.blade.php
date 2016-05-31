@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-4">
             <div class="white-wrapper">
-                <img src="{{ $image }}">
+                <img src="{{ $model->getImage() }}">
             </div>
         </div>
         <div class="col-lg-8">

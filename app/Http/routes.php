@@ -11,6 +11,14 @@
 |
 */
 
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', /*'middleware' => 'auth'*/], function(){
+    Route::resource('user', 'UserController');
+    Route::resource('product', 'ProductController');
+    Route::controller('', 'IndexController');
+});
+
+Route::controller('card', '\App\Http\Controllers\CardController');
+
 Route::get('/', function () {
     return view('welcome');
 });
