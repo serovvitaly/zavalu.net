@@ -48,7 +48,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return 'show';
     }
 
     /**
@@ -59,7 +59,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'edit';
     }
 
     /**
