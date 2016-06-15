@@ -101,13 +101,66 @@
 
 <div class="container" id="main-container">
     <div class="row">
-        <div class="col-lg-12" id="topbar"></div>
+        <div class="col-lg-12" id="topbar">
+            <div class="col-lg-9"></div>
+            <div class="col-lg-3">
+                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#loginFormModal">Регистрация/Вход</a>
+            </div>
+        </div>
         <div class="col-lg-12" id="header-main"></div>
     </div>
     @yield('content')
     <div class="row">
         <div class="col-lg-12" id="footer-top"></div>
         <div class="col-lg-12" id="footer-bottom"></div>
+    </div>
+</div>
+
+<!-- loginFormModal -->
+<div class="modal fade" id="loginFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4>Вход</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>Регистрация</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>
 

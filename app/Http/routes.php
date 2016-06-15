@@ -29,3 +29,8 @@ Route::get('/product-{product_id}', function ($product_id) {
 
     return view('product.card', $product_model->toArray() + ['model' => $product_model]);
 });
+
+Route::get('/landing-5667832', function(){
+    
+    return view('landing.fire-energy');
+});

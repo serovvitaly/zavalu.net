@@ -38,5 +38,6 @@
             </tr>
         @endforeach
         </table>
+        <p class="small" style="font-weight: bold; margin-top: 5px;"><a href="/admin/product/{{ $id }}/edit" target="_blank">Редактировать</a></p>
     </div>
 </div>

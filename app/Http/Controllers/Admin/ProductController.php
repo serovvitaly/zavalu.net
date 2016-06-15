@@ -59,7 +59,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return 'edit';
+        $model = \App\Models\ProductModel::findOrFail($id);
+
+        return view('admin.form', ['model' => $model]);
     }
 
     /**
