@@ -19,9 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', /*'middleware' => 'au
 
 Route::controller('card', '\App\Http\Controllers\CardController');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::controller('/', 'IndexController');
 
 Route::get('/product-{product_id}', function ($product_id) {
 
