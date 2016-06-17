@@ -8,5 +8,8 @@ use App\Http\Requests;
 
 class IndexController extends Controller
 {
-    //
+    public function getIndex()
+    {
+        return view('index');
+    }
 }
