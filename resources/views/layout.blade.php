@@ -10,6 +10,22 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="/js/jquery.min.js"></script>
+    <script>
+        function call(ops) {
+            var params = $.extend({
+                type: 'get',
+                dataType: 'json',
+                success: function(response, textStatus, jqXHR){
+                    if (ops.success != undefined) { ops.success(response, textStatus, jqXHR); }
+                    if (response.success == undefined || !response.success) { return null; }
+                    try { window[response.method](response.data); }
+                    catch(err) { console.log(err); }
+                }
+            }, ops);
+            $.ajax(params);
+        }
+    </script>
 </head>
 <body>
 <div class="container">

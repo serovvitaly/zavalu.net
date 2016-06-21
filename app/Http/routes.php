@@ -17,6 +17,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', /*'middleware' => 'au
     Route::controller('', 'IndexController');
 });
 
+Route::controller('search', '\App\Http\Controllers\SearchController');
+
+Route::get('/document/{document_id}', function ($document_id) {
+
+    $document_id = (int) $document_id;
+
+    $document_model = \App\Models\DocumentModel::findOrFail($document_id);
+    
+    return view('document', ['model' => $document_model]);
+});
+
 Route::controller('card', '\App\Http\Controllers\CardController');
 
 Route::controller('/', 'IndexController');

@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\ParsePrices::class,
         Commands\ParseBankreferatovRu::class,
+        Commands\VkReferats::class,
     ];
 
     /**

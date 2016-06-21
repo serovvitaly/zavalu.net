@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use League\Flysystem\Exception;
 
 class ParseBankreferatovRu extends Command
 {
@@ -37,28 +38,43 @@ class ParseBankreferatovRu extends Command
      */
     public function handle()
     {
-        $catalog_pages = self::getCatalog();
+        $doc = \DB::connection('mongodb')->collection('bankreferatov_documents')->first();
 
-        if (empty($catalog_pages)) {
+        $captcha = $this->downloadFileFromPageContent($doc['href2']);
+    }
+
+    public function downloadFileFromPageContent($page_url)
+    {
+        $url = self::HOST . $page_url;
+        $page_content = file_get_contents($url);
+
+        preg_match('/src=(\/TMPFILES\/[^\s]+)/', $page_content, $matches);
+
+        if (empty($matches)) {
             return;
         }
 
-        foreach ($catalog_pages as $catalog_page) {
+        $captcha_img_name = 'bankreferatov_captcha_img/' . str_replace('/', '_', $matches[1]);
 
-            $url = $catalog_page['href'];
+        $captcha_img_url = self::HOST . $matches[1];
 
-            $this->info($url);
+        $this->info($url);
+        $this->info($captcha_img_url);
 
-            $catalog_items_arr = $this->parseAllPagesByUrl($url);
+        try {
+            $captcha_img_content = file_get_contents($captcha_img_url);
 
-            if (empty($catalog_items_arr)) {
-                $this->info('...empty');
-                continue;
-            }
+            \Storage::disk('local')->put($captcha_img_name, $captcha_img_content);
 
-            $this->info('...count - ' . count($catalog_items_arr));
+            $this->warn('OK!');
+        }
+        catch (\ErrorException $e) {
 
-            \DB::connection('mongodb')->collection('bankreferatov_documents')->insert($catalog_items_arr);
+            $this->error($e->getMessage());
+        }
+        catch (Exception $e) {
+
+            $this->error($e->getMessage());
         }
     }
 
