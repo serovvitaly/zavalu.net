@@ -26,6 +26,14 @@
             $.ajax(params);
         }
     </script>
+    <style>
+        .preloader{
+            background: url(/img/preloader.gif);
+            height: 50px;
+            width: 50px;
+            margin: 10px auto;
+        }
+    </style>
 </head>
 <body>
 <div class="container">

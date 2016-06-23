@@ -56,11 +56,14 @@ $cats_arr = [
         <div class="input-group">
             <input id="input-search-query" class="form-control input-lg" type="text" placeholder="введите запрос для поиска">
             <span class="input-group-btn">
-                <button class="btn btn-default btn-lg" type="button" title="Поиск" onclick="call({url: '/search', data: {q: $('#input-search-query').val()}});">
+                <button class="btn btn-default btn-lg" type="button" title="Поиск" onclick="doSearching();">
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
             </span>
         </div>
+    </div>
+    <div class="col-lg-12">
+        <hr>
     </div>
 {{--    <div class="col-lg-12">
         <div style="margin: 15px 0; padding: 10px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
@@ -72,6 +75,24 @@ $cats_arr = [
     </div>
 </div>
 <script>
+    $(document).ready(function(){
+        doSearching();
+        $('#input-search-query').on('keydown', function(key){
+            if (key.keyCode != 13) return;
+            doSearching();
+        });
+    });
+    function doSearching() {
+        var query = $('#input-search-query').val();
+        if (query == '') return;
+        $('#results-container').html('<div class="preloader"></div>');
+        call({
+            url: '/search',
+            data: {
+                q: query
+            }
+        });
+    }
     function showSearchResult(html) {
         $('#results-container').html(html);
     }
